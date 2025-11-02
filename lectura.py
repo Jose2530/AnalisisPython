@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-uri_data = 'Analisis Phyton/DATOS.xlsx'
+uri_data = 'Phyton/DATOS.xlsx'
 df = pd.read_excel(uri_data)
 print(df.head())
 
@@ -33,6 +33,12 @@ peso_despues_dieta = df['PESO_DESPUES_DIETA'].tolist()
 
 
 print('1.) Con base a las edades en la muestra, determine: media, mediana, moda,rango, percentiles 25, 50 y 75#############')
+mediana = df["EDAD"].median()
+print("Mediana:", mediana)
+moda = df["EDAD"].mode()[0]
+print("Moda:", moda)
+rango = df["EDAD"].max() - df["EDAD"].min()
+print("Rango:", rango)
 percentil_50 = df["EDAD"].quantile(0.5)
 print("Percentil 50:", percentil_50)
 percentil_25 = df["EDAD"].quantile(0.25)
@@ -107,7 +113,7 @@ conteoNivelEducatico.plot(kind='bar', color=['lightgreen', 'skyblue'])
 plt.title("Distribución de tipo de vivienda")
 plt.xlabel("Tipo de vivienda")
 plt.ylabel("Cantidad de personas")
-plt.xticks(rotation=0)  # Mantener las etiquetas horizontales
+plt.xticks(rotation=0)
 plt.show()
 
 print('6.) ¿Qué porcentaje de la población tiene vivienda propia? Realice un gráfico de pastel.#############')
